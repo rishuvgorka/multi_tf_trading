@@ -46,7 +46,4 @@ print("Fetching 1h data...")
 df_1h = fetch_klines(symbol, "1h", start, end)
 df_1h.to_csv("inFiles/1h_data.csv")
 
-# Merge and saving the data
-df_15m['RSI_1h'] = df_1h['Close'].resample('15min').ffill().reindex(df_15m.index)
-df_15m.to_csv("inFiles/your_merged_15m_ohlcv.csv")
 
