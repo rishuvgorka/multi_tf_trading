@@ -43,7 +43,8 @@ def run_live():
     signal = strategy.get_signal()
     if not signal:
         return
-
+    else:
+        print(f"[{pd.Timestamp.now()}] No signal this round. Sleeping 15m...")
     usdt = client.get_balance('USDT')
     coin_price = client.get_price()
     qty = round((usdt * 0.95) / coin_price, 6)
